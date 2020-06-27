@@ -4,6 +4,7 @@
     <tr>
       <th>Name</th>
       <th>Alias</th>
+      <th>Branch</th>
       <th>Semester</th>
       <th colspan="3"></th>
     </tr>
@@ -13,8 +14,8 @@
       <tr>
         <td><%= subject.name %></td>
         <td><%= subject.alias %></td>
+        <td><%= subject.branch.alias %></td>
         <td><%= subject.semester %></td>
-        
         <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
         <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

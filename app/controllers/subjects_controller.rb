@@ -2,7 +2,7 @@
 
 class SubjectsController < ApplicationController
   before_action :set_subject, only: %i[edit update destroy]
-
+  before_action :set_branch, only: %i[edit new index show create]
   # GET /subjects
   # GET /subjects.json
   def index
@@ -38,7 +38,7 @@ class SubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
+        format.html { redirect_to subjects_url, notice: 'Subject was successfully updated.' }
         format.json { render :show, status: :ok, location: @subject }
       else
         format.html { render :edit }
@@ -64,8 +64,12 @@ class SubjectsController < ApplicationController
     @subject = Subject.find(params[:id])
   end
 
+  def set_branch
+    @branch = Branch.all
+  end
+
   # Only allow a list of trusted parameters through.
   def subject_params
-    params.require(:subject).permit(:name, :alias, :semester)
+    params.require(:subject).permit(:name, :alias, :branch_id, :semester)
   end
 end

@@ -1,15 +1,12 @@
-class FacultiesController < ApplicationController
-  before_action :set_faculty, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
 
+class FacultiesController < ApplicationController
+  before_action :set_faculty, only: %i[show edit update destroy]
+  before_action :set_branch, only: %i[edit new index show create]
   # GET /faculties
   # GET /faculties.json
   def index
     @faculties = Faculty.all
-  end
-
-  # GET /faculties/1
-  # GET /faculties/1.json
-  def show
   end
 
   # GET /faculties/new
@@ -18,8 +15,7 @@ class FacultiesController < ApplicationController
   end
 
   # GET /faculties/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /faculties
   # POST /faculties.json
@@ -28,7 +24,7 @@ class FacultiesController < ApplicationController
 
     respond_to do |format|
       if @faculty.save
-        format.html { redirect_to @faculty, notice: 'Faculty was successfully created.' }
+        format.html { redirect_to faculties_url, notice: 'Faculty was successfully created.' }
         format.json { render :show, status: :created, location: @faculty }
       else
         format.html { render :new }
@@ -62,13 +58,18 @@ class FacultiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_faculty
-      @faculty = Faculty.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def faculty_params
-      params.require(:faculty).permit(:name, :alias)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_faculty
+    @faculty = Faculty.find(params[:id])
+  end
+
+  def set_branch
+    @branch = Branch.all
+  end
+
+  # Only allow a list of trusted parameters through.
+  def faculty_params
+    params.require(:faculty).permit(:name, :alias, :branch_id)
+  end
 end

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
 class Faculty < ApplicationRecord
-  belongs_to :branch, class_name: "branch", foreign_key: "branch_id"
+  has_many :subjects
+  belongs_to :branch
 end
