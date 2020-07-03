@@ -1,11 +1,11 @@
 <h1>Faculties</h1>
-<table class="table table-hover">
-  <thead>
+<table class="table table-hover table-responsive-sm">
+  <thead class="thead-light">
     <tr>
-      <th>Name</th>
-      <th>Alias</th>
-      <th>Branch</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Alias</th>
+      <th scope="col">Branch</th>
+      <th colspan="3">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
         <td><%= faculty.name %></td>
         <td><%= faculty.alias %></td>
         <td><%= faculty.branch.alias %></td>
-        <td><%= link_to 'Show', faculty %></td>
+       
         <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
         <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

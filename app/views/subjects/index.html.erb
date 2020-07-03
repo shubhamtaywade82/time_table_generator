@@ -1,12 +1,12 @@
 <h1>Subjects</h1>
-<table class="table table-hover">
-  <thead>
+<table class="table table-hover table-responsive-sm">
+  <thead class="thead-light">
     <tr>
-      <th>Name</th>
-      <th>Alias</th>
-      <th>Branch</th>
-      <th>Semester</th>
-      <th colspan="3"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Alias</th>
+      <th scope="col">Branch</th>
+      <th scope="col">Semester</th>
+      <th colspan="3">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -23,4 +23,4 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Subject', new_subject_path %>
+<%= link_to 'Add New Subject', new_subject_path %>
