@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class FacultiesController < ApplicationController
-  before_action :set_faculty, only: %i[show edit update destroy]
-  before_action :set_branch, only: %i[edit new index show create]
+  before_action :set_faculty, only: %i[edit update destroy]
+  before_action :set_branch, only: %i[edit new index create]
+  before_action :set_subject, only: %i[edit new index create]
+
   # GET /faculties
   # GET /faculties.json
   def index
@@ -38,11 +40,11 @@ class FacultiesController < ApplicationController
   def update
     respond_to do |format|
       if @faculty.update(faculty_params)
-        format.html { redirect_to @faculty, notice: 'Faculty was successfully updated.' }
-        format.json { render :show, status: :ok, location: @faculty }
+        format.html { redirect_to faculties_url, notice: 'Faculty was successfully updated.' }
+        format.json { render :show, status: :ok, location: faculties_url }
       else
         format.html { render :edit }
-        format.json { render json: @faculty.errors, status: :unprocessable_entity }
+        format.json { render json: faculties_url.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -68,8 +70,12 @@ class FacultiesController < ApplicationController
     @branch = Branch.all
   end
 
+  def set_subject
+    @subject = Subject.all
+  end
+
   # Only allow a list of trusted parameters through.
   def faculty_params
-    params.require(:faculty).permit(:name, :alias, :branch_id)
+    params.require(:faculty).permit(:name, :alias, :branch_id, :subject_id)
   end
 end

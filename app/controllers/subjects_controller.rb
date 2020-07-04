@@ -2,7 +2,7 @@
 
 class SubjectsController < ApplicationController
   before_action :set_subject, only: %i[edit update destroy]
-  before_action :set_branch, only: %i[edit new index show create]
+  before_action :set_branch, only: %i[edit new index create]
   # GET /subjects
   # GET /subjects.json
   def index

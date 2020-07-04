@@ -12,8 +12,8 @@
       <tr>
         <td><%= branch.name %></td>
         <td><%= branch.alias %></td>
-        <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-        <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_branch_path(branch), class:"fa fa-pencil-square-o fa-lg" %></td>
+        <td><%= link_to '', branch, method: :delete, data: { confirm: 'Are you sure?' }, class:"fa fa-trash fa-lg" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,8 +35,8 @@
         <td><%= faculty.name %></td>
         <td><%= faculty.alias %></td>
         <td><%= faculty.branch.alias %></td>
-        <td><%= link_to 'Edit', edit_faculty_path(faculty) %></td>
-        <td><%= link_to 'Destroy', faculty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_faculty_path(faculty), class:"fa fa-pencil-square-o fa-lg" %></td>
+        <td><%= link_to '', faculty, method: :delete, data: { confirm: 'Are you sure?' }, class:"fa fa-trash fa-lg" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -60,8 +60,8 @@
         <td><%= subject.alias %></td>
         <td><%= subject.branch.alias %></td>
         <td><%= subject.semester %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_subject_path(subject), class:"fa fa-pencil-square-o fa-lg" %></td>
+        <td><%= link_to '', subject, method: :delete, data: { confirm: 'Are you sure?' }, class:"fa fa-trash fa-lg" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -12,8 +12,8 @@
       <tr>
         <td><%= branch.name %></td>
         <td><%= branch.alias %></td>
-        <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-        <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_branch_path(branch), class:"fa fa-pencil-square-o fa-lg" %></td>
+        <td><%= link_to '', branch, method: :delete, data: { confirm: 'Are you sure?' }, class:"fa fa-trash fa-lg" %></td>
       </tr>
     <% end %>
   </tbody>
